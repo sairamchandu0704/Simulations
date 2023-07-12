@@ -1,0 +1,34 @@
+Working principle of digital clock -
+
+1 . 74LS190 - is a Synchronus Decade Counter in which 
+it contains 16 pins 
+	1-B	-Input	B
+	2-QB	-Output	B
+	3-QA	-Output	A
+	4-CTBN	-Counter Enable (Input)Active Low
+	5-U/D	-Up/Down Count Control (Input)
+	6-QC	-Output	C
+	7-QD	-Output	D
+	8-GND	-Ground
+	9-D	-Input	D
+	10-C	-Input	C
+	11-LOAD	-Parallel Load (Input)Active Low
+	12-MAX/MIN -Terminal Count Output
+	13-RCO	-Ripple Clock (OUTPUT)
+	14-CLK	-Clock Pulse (INPUT) Active High
+	15-A	-Input	A
+	16-VCC	-SUPPLY
+2. Ground all the inputs Except Clk&Load because we dont need them 
+3. Give Clock frequency of 1khz to the clk and load to 5v
+4. it will run a clock frequency to 7 segment Display so it run from 1-9
+5. Now Get the Ripple Clock output And give it to clk input to another ic so
+   it repples the original clock speed so it slows to 1/2 of the speed of the 
+   original
+6. Set a Nand gate At the output B,C of the Ic (Because we want to stop the clock at 
+   60 so We need to stop the timer and restart at 60 By connecting nand gate it 
+   acts like mod counter whenver we want to stop the clock we need to Set that nand gate
+   A at minimum Range and B at maximum range )
+7. Give the output of the nand to Load input so the Timer stops At our required range.
+4. Now repeating the same method will give us sec,min,hr,Readings
+
+# RAM 
